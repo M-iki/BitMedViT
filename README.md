@@ -25,10 +25,12 @@ Vision Transformers (ViTs) have demonstrated strong capabilities in interpreting
 ## References
 * [MedViTv2](https://github.com/Omid-Nejati/MedViTV2)
 * [BitNet](https://github.com/microsoft/BitNet)
+* [Vit-1.58b](https://github.com/DLYuanGod/ViT-1.58b)
+* [BitNetTransformer](https://github.com/kyegomez/BitNet)
 
 ## Citation
 ```bibtex
-@misc{walczak2025invitedpaperbitmedvitternaryquantized,
+@misc{walczak2025bitmedvit,
       title={Invited Paper: BitMedViT: Ternary-Quantized Vision Transformer for Medical AI Assistants on the Edge}, 
       author={Mikolaj Walczak and Uttej Kallakuri and Edward Humes and Xiaomin Lin and Tinoosh Mohsenin},
       year={2025},
