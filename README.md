@@ -81,13 +81,13 @@ Using our custom kernel and TensorRT deployment we deploy BitMedViT on the Jetso
 <div align="center">
 Table 2: Hardware performance for individual image inference on the Jetson Orin Nano.
   
-**Precision**| **Parameters (M)**| **Model Size (MB)**| **Operations (GOPs)**| **Power (W)**| **Latency (ms)** |  **Performance (GOPs / sec)**| **Energy Efficiency (GOPs / J)**|
-|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:--------:|:-------:|
-MP (W2A8) | 8.65 | 10.5 | 11.5 | 3.7 | 16.9 | 683.1 | 183.6 |
+**Parameters (M)**| **Model Size (MB)**| **Operations (GOPs)**| **Power (W)**| **Latency (ms)** |  **Performance (GOPs / sec)**| **Energy Efficiency (GOPs / J)**|
+|:-------:|:-------:|:-------:|:-------:|:-------:|:--------:|:-------:|
+8.65 | 10.5 | 11.5 | 3.7 | 16.9 | 683.1 | 183.6 |
 </div> 
 
 <div align="center">
-  <p><img src="images/power_graph.png" alt="BitMedViT power_plot" width="60%"></p>
+  <p><img src="images/power_graph.png" alt="BitMedViT power_plot" width="80%"></p>
 Fig 5: power plots for batched inference of 50 images with a 10 second pause repeated for 10 iterations. BitMedVit shows 1.1x reduced power spikes in addition to 5x faster onboard inference for sample experiment with induced pauses.
   
 </div>
