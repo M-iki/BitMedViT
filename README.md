@@ -103,7 +103,7 @@ Then activate the conda environment
 conda activate bitmedvit_training
 ```
 ### Training
-We provide pretrained BitMedViT models for the 12 MedMnist datasets however, to train BitMedViT on your own the prequisite is that the pretrained MedViTv2 model is available. For this work we trained our own teacher models from scratch but the offical pretrained versions can be pulled from following the instructions in the [MedViTv2 Github](https://github.com/Omid-Nejati/MedViTV2). This code uses a modified versions of [MedViT.py](MedViT.py) and [dataset.py](dataset.py) to allow for feature distillation and some dataset optimizations.
+We provide pretrained BitMedViT models for the 12 MedMnist datasets however, to train BitMedViT on your own the prequisite is that the pretrained MedViTv2 model is available. For this work we trained our own teacher models from scratch but the offical pretrained versions can be pulled from following the instructions in the [MedViTv2 Github](https://github.com/Omid-Nejati/MedViTV2). To allow for simple setup we include a modified version of [MedViT.py](MedViT.py) and [dataset.py](dataset.py) within this repository to allow for feature distillation and some dataset optimizations. [fasterkan.py](fasterkan.py) is included however not modified.
 
 After collecting the files the student can now be trained by running 
 ```shell
