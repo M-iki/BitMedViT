@@ -58,18 +58,18 @@ Table 1: Test and Validation accuracy on the 12 MedMnist datasets in addition to
   
 | **Dataset** | **Task** | **Validation**| **Testing**| **Model**|
 |:-----------:|:--------:|:-----------------------:|:-----------------------:|:-----------------------:|
-| **[PathMNIST](https://medmnist.com/)** | Multi-Class (9) | 87.0 | 82.1 | |
-| **[ChestMNIST](https://medmnist.com/)** | Multi-Class (14) | 94.0 | 93.7 | |
-| **[DermaMNIST](https://medmnist.com/)** | Multi-Class (7) | 79.0 | 76.2 | |
-| **[OCTMNIST](https://medmnist.com/)** | Multi-Class (4) | 95.0 | 85.7 | |
-| **[PneumoniaMNIST](https://medmnist.com/)** | Multi-Class (2) | 86.0 | 88.0 | |
-| **[RetinaMNIST](https://medmnist.com/)** | Multi-Class (5) | 53.0 | 51.3 | |
-| **[BreastMNIST](https://medmnist.com/)** | Multi-Class (2) | 87.0 | 82.1 | |
-| **[BloodMNIST](https://medmnist.com/)** | Multi-Class (8) | 97.0 | 97.5 | | 
-| **[TissueMNIST](https://medmnist.com/)** | Multi-Class (8) | 64.0 | 63.8 | |
-| **[OrganAMNIST](https://medmnist.com/)** | Multi-Class (11) | 98.0 | 90.2 | |
-| **[OrganCMNIST](https://medmnist.com/)** | Multi-Class (11) | 96.0 | 88.4 | | 
-| **[OrganSMNIST](https://medmnist.com/)** | Multi-Class (11) | 81.0 | 74.1 | |
+| **[PathMNIST](https://medmnist.com/)** | Multi-Class (9) | 87.0 | 82.1 |[Model](https://huggingface.co/BingoTBongo/BitMedViT/resolve/main/bloodmnist.pth) |
+| **[ChestMNIST](https://medmnist.com/)** | Multi-Class (14) | 94.0 | 93.7 | [Model](https://huggingface.co/BingoTBongo/BitMedViT/resolve/main/chestmnist.pth) |
+| **[DermaMNIST](https://medmnist.com/)** | Multi-Class (7) | 79.0 | 76.2 |[Model](https://huggingface.co/BingoTBongo/BitMedViT/resolve/main/dermamnist.pth)  |
+| **[OCTMNIST](https://medmnist.com/)** | Multi-Class (4) | 95.0 | 85.7 |[Model](https://huggingface.co/BingoTBongo/BitMedViT/resolve/main/octmnist.pth)  |
+| **[PneumoniaMNIST](https://medmnist.com/)** | Multi-Class (2) | 86.0 | 88.0 |[Model](https://huggingface.co/BingoTBongo/BitMedViT/resolve/main/pneumoniamnist.pth)  |
+| **[RetinaMNIST](https://medmnist.com/)** | Multi-Class (5) | 53.0 | 51.3 |[Model](https://huggingface.co/BingoTBongo/BitMedViT/resolve/main/retinamnist.pth)  |
+| **[BreastMNIST](https://medmnist.com/)** | Multi-Class (2) | 87.0 | 82.1 | [Model](https://huggingface.co/BingoTBongo/BitMedViT/resolve/main/breastmnist.pth) |
+| **[BloodMNIST](https://medmnist.com/)** | Multi-Class (8) | 97.0 | 97.5 | [Model](https://huggingface.co/BingoTBongo/BitMedViT/resolve/main/bloodmnist.pth) | 
+| **[TissueMNIST](https://medmnist.com/)** | Multi-Class (8) | 64.0 | 63.8 | [Model](https://huggingface.co/BingoTBongo/BitMedViT/resolve/main/tissuemnist.pth) |
+| **[OrganAMNIST](https://medmnist.com/)** | Multi-Class (11) | 98.0 | 90.2 |[Model](https://huggingface.co/BingoTBongo/BitMedViT/resolve/main/organamnist.pth)  |
+| **[OrganCMNIST](https://medmnist.com/)** | Multi-Class (11) | 96.0 | 88.4 |[Model](https://huggingface.co/BingoTBongo/BitMedViT/resolve/main/organcmnist.pth)  | 
+| **[OrganSMNIST](https://medmnist.com/)** | Multi-Class (11) | 81.0 | 74.1 | [Model](https://huggingface.co/BingoTBongo/BitMedViT/resolve/main/organsmnist.pth) |
 </div>
 
 ## BitMedViT Hardware Results
