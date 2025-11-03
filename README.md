@@ -94,12 +94,51 @@ Fig 5: power plots for batched inference of 50 images with a 10 second pause rep
 
 
 ## Getting Started
-
+Begin by pulling this GitHub repository by any desired method. Then, install the conda environment found within ```environment.yml``` by running 
+```shell
+conda env env create -f environment.yml
+```
+Then activate the conda environment
+```shell
+conda activate bitmedvit_training
+```
 ### Training
+We provide pretrained BitMedViT models for the 12 MedMnist datasets however, to train BitMedViT on your own the prequisite is that the pretrained MedViTv2 model is available. For this work we trained our own teacher models from scratch but the offical pretrained versions can be pulled from following the instructions in the [MedViTv2 Github](https://github.com/Omid-Nejati/MedViTV2). This code uses a modified versions of [MedViT.py](MedViT.py) and [dataset.py](dataset.py) to allow for feature distillation and some dataset optimizations.
+
+After collecting the files the student can now be trained by running 
+```shell
+python distillbitvitv3 {args} # args are shown below
+```
+| Argument | Type | Default | Description |
+|-----------|------|----------|-------------|
+| `--batch_size` | `int` | `16` | Number of samples processed per training step. |
+| `--epochs` | `int` | `100` | Number of training epochs to run. |
+| `--lr` | `float` | `1e-4` | Learning rate for the optimizer. |
+| `--T` | `float` | `2` | Temperature parameter (for KL Divergence). |
+| `--L` | `int` | `3` | Number of layers in BitMedViT. |
+| `--H` | `int` | `8` | Number of attention heads in BitMedViT. |
+| `--dim` | `int` | `512` | Hidden dimension size for the model in BitMedViT (feedforward expansion of 4x built in). |
+| `--alpha` | `float` | `0.5` | Balancing coefficient for loss terms or scaling factor. |
+| `--dataset` | `str` | `'breastmnist'` | Dataset name (e.g., `breastmnist`, `pathmnist`, etc.). |
+| `--gamma` | `float` | `0.5` | Learning rate decay or weighting factor (depending on usage). |
+| `--multi_query` | `int` | `1` | Enables multi-query attention when set to `1` multi-head attention when set to `0`. |
+| `--fp_attn` | `int` | `1` | If `1`, uses full-precision attention; and bitlinear attention when set to `0`. |
+| `--save_dir` | `str` | `'./runs'` | Directory where experiment logs and models are saved. |
+| `--data_dir` | `str` | `'./data'` | Directory containing dataset files. |
+| `--teacher_dir` | `str` | `'./models'` | Directory where MedViTv2 trained model checkpoints are saved. |
+
+After running the command the model will be found under the ```save_dir``` base directory following a format of 
+```
+{save_dir}/{muli_attn/multi_query}/{bit_attn/fp_attn}/{dataset}/{L#dim#H#}
+```
+Under this directory the logs at each training step in addition to the ```.pth``` model weights will be saved.
 
 ### Evaluation
+We provide two methods of evaluation for BitMedViT. One is for accuracy and area under the curve as for the standard MedMnist dataset and another for visualizations and floating point operations.
 
 ### Custom Kernel and TensorRT Deployment
+
+***TensorRT Deployment and Instructions to Be Released***
 
 ## References
 * [MedMnist](https://medmnist.com)
