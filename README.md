@@ -43,7 +43,7 @@ The BitMedViT training procedure consists of two main components (1) knowledge d
 
   
 <div align="center">
-  <p><img src="images/hardware_fig.png" alt="BitMedViT deployment" width="80%"></p>
+  <p><img src="images/hardware_fig.png" alt="BitMedViT deployment" width="90%"></p>
   Fig4: Deployment pipeline showing our pretrained model weights are discretized to 2-bit weights and packed into memory. We develop custom kernels that can be integrated into tensorRT enabling full model optimization for inference on the Jetson Orin Nano and other Ampere GPUs.
 </div>
 
