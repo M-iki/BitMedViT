@@ -46,7 +46,7 @@ The BitMedViT training procedure consists of two main components (1) knowledge d
 
 
 ## BitMedViT Performance Results
-Using the original MedMnist training procedure and dataset breadown we define a model architecutre with 3 transformer layers (L), an embedding dimension of 512 (E<sub>d</sub>), number of transformer heads as 8 (H) and a feedforward expansion of 4x or 2048 (E<sub>ff</sub>). In addition loss scales &beta; and &alpha; both set to 0.5.
+Using the original MedMnist training procedure and dataset breadown we define a model architecutre with 3 transformer layers (L), an embedding dimension of 512 (E<sub>d</sub>), number of transformer heads as 8 (H) and a feedforward expansion of 4x or 2048 (E<sub>ff</sub>). In addition loss scales &gamma; and &alpha; both set to 0.5.
 <div align="center">
   <p><img src="images/model_gradcam.png" alt="BitMedViT gradcam" width="40%"></p>
 Fig 5: model grad cam performance compared to MedViTv2 teacher model on 3 sample datasets with key regions highlighted.
