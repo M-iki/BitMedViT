@@ -2,6 +2,10 @@
 <div align="center">
   <h1 style="font-family: Arial;">BitMedViT</h1>
   <h3>BitMedViT: Ternary Quantized Vision Transformer for Medical AI Assistants on the Edge</h3>
+  
+  [Mikolaj Walczak](https://www.linkedin.com/in/mikolaj-walczak-6423151b8/) ,[Uttej Kallakuri](https://www.linkedin.com/in/kallakuriniyogi/) ,[Edward Humes](https://www.linkedin.com/in/edward-humes-830b7217a/) ,[Xiaomin Lin](https://www.linkedin.com/in/xiaomin-lin/), and [Tinoosh Mohsenin](https://www.linkedin.com/in/tinoosh-mohsenin-352044b/)
+ 
+  [Energy Efficient High Performance Computing Lab](https://eehpc.ece.jhu.edu/)  
 </div>
 
 <div align="center">
