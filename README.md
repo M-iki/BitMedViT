@@ -6,11 +6,13 @@
   [Mikolaj Walczak](https://www.linkedin.com/in/mikolaj-walczak-6423151b8/) ,[Uttej Kallakuri](https://www.linkedin.com/in/kallakuriniyogi/) ,[Edward Humes](https://www.linkedin.com/in/edward-humes-830b7217a/) ,[Xiaomin Lin](https://www.linkedin.com/in/xiaomin-lin/), and [Tinoosh Mohsenin](https://www.linkedin.com/in/tinoosh-mohsenin-352044b/)
  
   [Energy Efficient High Performance Computing Lab](https://eehpc.ece.jhu.edu/)  
+
+  Original Work Invited, Published and Presented at the **44th Annual ICCAD 2025 Conference in Munich Germany**
 </div>
 
 <div align="center">
   <p><img src="images/bitmedvit_doctor_logo.png" alt="BitMedViT logo" width="40%"></p>
-  <em>Logo Generated Using GPT-Image</em>
+  <em>Image Generated Using GPT-Image</em>
 </div>
 
 ## Abstract
@@ -82,16 +84,9 @@ Using our custom kernel and TensorRT deployment we deploy BitMedViT on the Jetso
 Table 2: Hardware performance for individual image inference on the Jetson Orin Nano.
   
 **Parameters (M)**| **Model Size (MB)**| **Operations (GOPs)**| **Power (W)**| **Latency (ms)** |  **Performance (GOPs / sec)**| **Energy Efficiency (GOPs / J)**|
-|:-------:|:-------:|:-------:|:-------:|:-------:|:--------:|:-------:|
+|:-------:|:-------:|:-------:|:-------:|:-------:|:--------:|:--------:|
 8.65 | 10.5 | 11.5 | 3.7 | 16.9 | 683.1 | 183.6 |
 </div> 
-
-<div align="center">
-  <p><img src="images/power_graph.png" alt="BitMedViT power_plot" width="80%"></p>
-Fig 5: power plots for batched inference of 50 images with a 10 second pause repeated for 10 iterations. BitMedVit shows 1.1x reduced power spikes in addition to 5x faster onboard inference for sample experiment with induced pauses.
-  
-</div>
-
 
 ## Getting Started
 Begin by pulling this GitHub repository by any desired method. Then, install the conda environment found within ```environment.yml``` by running 
@@ -134,9 +129,28 @@ After running the command the model will be found under the ```save_dir``` base 
 Under this directory the logs at each training step in addition to the ```.pth``` model weights will be saved.
 
 ### Evaluation
-We provide two methods of evaluation for BitMedViT. One is for accuracy and area under the curve as for the standard MedMnist dataset and another for visualizations and floating point operations.
+We provide two methods of evaluation for BitMedViT. One is for accuracy and area under the curve as for the standard MedMnist dataset methods and another for visualizations and floating point operations found in [bitmedvit_comparison.ipynb](bitmedvit_comparison.ipynb). To evaluate accuracy we deploy on the Jetson Orin Nano for reporting final results using the optimized kernel. To deploy this install the latest JetPack version (6.2 used for this work) following the setup guide found [here](https://www.jetson-ai-lab.com/initial_setup_jon.html). Then ensure conda is installed, a simple tutorial is provided by Jetson Hacks shown [here](https://jetsonhacks.com/2024/11/04/install-anaconda-all-the-pythons-for-ai-ml/)
+
+We provide a python environment that is used for evaluation and kernel deployment named ```jetson_environment.yml``` that can be installed using the same method as before
+```shell
+conda env install -f jetson_environment.yml
+```
+and activate
+```shell
+conda activate jetson_env
+```
+The evaluation scripts then can be run by running 
+```shell
+python bit_converter_ternary.py {args} # same arguments as for training script
+```
+Following the script the deployed model will be evaluated for default calculations in addition to applying the custom 2-bit kernel sample output shown below 
+<div align="center">
+  <p><img src="images/sample_output.png" alt="BitMedViT sample" width="100%"></p>
+</div>
+This script requires compilation of the custom kernel and serves as an initial debugging stage for verifying model performance prior to implementing into the final TensoRT optimized model. Details on doing so are discussed in the following section.
 
 ### Custom Kernel and TensorRT Deployment
+As part of our deployment we provide custom Cuda Kernels optimized for utilizing tensor cores and asynchronous memory reads on the Ampere GPU of the Jetson Orin Nano. Details on compiling and setting up the kernel are found within [kernels](kernels). These kernels are inspired from the original [bitnet kernels]([https://github.com/microsoft/BitNet](https://github.com/microsoft/BitNet/tree/main/gpu) however heavily modified for ViT inference and GPU optimization.
 
 ***TensorRT Deployment and Instructions to Be Released***
 
