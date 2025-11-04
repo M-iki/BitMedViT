@@ -27,6 +27,11 @@ cd ..
 # Run performance tests
 python test_{M}_{N}_{K}.py # replace M N K for compiled version
 ```
+The test runs the kernel for the two feedforward dimensions present in BitMedViT. For specific dimensions the .cu files should be adjusted and tuned to match the desired shape.
+A sample output is shown below
+<div align="center">
+  <p><img src="../images/kernel_example.png" alt="BitMedViT kernel" width="80%"></p>
+</div>
 
 ## Optimizations
 ### Weight Permutation
