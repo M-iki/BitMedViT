@@ -150,7 +150,7 @@ Following the script the deployed model will be evaluated for default calculatio
 This script requires compilation of the custom kernel and serves as an initial debugging stage for verifying model performance prior to implementing into the final TensoRT optimized model. Details on doing so are discussed in the following section.
 
 ### Custom Kernel and TensorRT Deployment
-As part of our deployment we provide custom Cuda Kernels optimized for utilizing tensor cores and asynchronous memory reads on the Ampere GPU of the Jetson Orin Nano. Details on compiling and setting up the kernel are found within [kernels](kernels). These kernels are inspired from the original [bitnet kernels]([https://github.com/microsoft/BitNet](https://github.com/microsoft/BitNet/tree/main/gpu) however heavily modified for ViT inference and GPU optimization.
+As part of our deployment we provide custom Cuda Kernels optimized for utilizing tensor cores and asynchronous memory reads on the Ampere GPU of the Jetson Orin Nano. Details on compiling and setting up the kernel are found within [kernels](kernels). These kernels are inspired from the original [bitnet kernels](https://github.com/microsoft/BitNet/tree/main/gpu) however heavily modified for ViT inference and GPU optimization.
 
 ***TensorRT Deployment and Instructions to Be Released***
 
