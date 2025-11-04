@@ -35,7 +35,7 @@ A sample output is shown below
 
 ## Optimizations
 ### Weight Permutation
-In contrast to bitnets original 16x32 (KxN) matrix breakdown pattern we provide kernels for all three configurations though 8x32x16 is the only one with asynchronous memory reads as it provides the optimal output pattern as both N and the number of threads per warp are 32 meaning during dequantization write-backs result in contiguous streams not requiring any reshaping or fragmented data writes.
+In contrast to bitnets original 16x32 (KxN) matrix breakdown pattern we provide kernels for all three configurations though 8x32x16 is the only one with asynchronous memory reads as it provides the optimal output pattern as both N and the number of threads per warp are 32 meaning during dequantization, write-backs result in contiguous streams not requiring any reshaping or strided data writes.
 
 ### WMMA Operation
 We use ```WMMA``` as the main computing backbone that devices the activation and weight matrices into fragments passed into the tensor cores found within the streaming multiprocessors of the GPU.
