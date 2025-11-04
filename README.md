@@ -162,6 +162,7 @@ As part of our deployment we provide custom Cuda Kernels optimized for utilizing
 * [BitNetTransformer](https://github.com/kyegomez/BitNet)
 
 ## Citation
+If you find our work useful please cite
 ```bibtex
 @misc{walczak2025bitmedvit,
       title={Invited Paper: BitMedViT: Ternary-Quantized Vision Transformer for Medical AI Assistants on the Edge}, 
