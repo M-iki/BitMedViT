@@ -145,9 +145,9 @@ python bit_converter_ternary.py {args} # same arguments as for training script
 ```
 Following the script the deployed model will be evaluated for default calculations in addition to applying the custom 2-bit kernel sample output shown below 
 <div align="center">
-  <p><img src="images/sample_output.png" alt="BitMedViT sample" width="80%"></p>
+  <p><img src="images/sample_output.png" alt="BitMedViT sample" width="100%"></p>
 </div>
-This script requires compilation of the custom kernel and doesn't integrate the final TensoRT optimized model. Details on doing so are discussed in the following section.
+This script requires compilation of the custom kernel and serves as an initial debugging stage for verifying model performance prior to implementing into the final TensoRT optimized model. Details on doing so are discussed in the following section.
 
 ### Custom Kernel and TensorRT Deployment
 As part of our deployment we provide custom Cuda Kernels optimized for utilizing tensor cores and asynchronous memory reads on the Ampere GPU of the Jetson Orin Nano. Details on compiling and setting up the kernel are found within [kernels](kernels). These kernels are inspired from the original [bitnet kernels]([https://github.com/microsoft/BitNet](https://github.com/microsoft/BitNet/tree/main/gpu) however heavily modified for ViT inference and GPU optimization.
