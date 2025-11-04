@@ -21,7 +21,6 @@ Installation and kernel performance tests:
 conda activate jetson_env
 
 # Build the kernel
-cd bitmedvit_kernels
 bash compile_{M}_{N}_{K}.sh # replace M N K with desired configuration (8x32x16 tested for highest performance)
 cd ..
 
@@ -45,8 +44,4 @@ To hide any latencies incrued during weight decoding (outlined by original bitne
 In contrast to bitnet that uses 128 total threads and ```shuffle_down_sync``` to accumulate across threads ```WMMA``` requires operation in warps or groups of 32 threads therefore we define a 3D dimension of 8x4xZ where 8 aligns with the original decoding style, 4 outlining the number of these groups to complete a warp and Z being a tunable parameter for tiling across number of outputs N. In addition to maximize occupancy we divide the computation into blocks of shape ```AxB``` where ```A``` outlines the output neuron dimension and ```B``` outlines the input patch dimension.
 
 ### Kernel Benchmarking
-Besides latency and correctness evaluation against standard bfloat16 kernels we use [Nvidia Nsight Compute](https://developer.nvidia.com/nsight-compute) to profile and ensure the kernels are as optimized and efficient as possible. To do this copy the desired `test_{M}_{N}_{K}.py` file and `libbitnet.so` file to the directory of this readme and name it `test.py` then run the ncu_profile script by running 
-```
-bash ncu_profile.sh
-```
-this will now run through a comprehensive evaluation that can then be opened using the nsight compute visualizer
+Besides latency and correctness evaluation against standard bfloat16 kernels we use [Nvidia Nsight Compute](https://developer.nvidia.com/nsight-compute) to profile and ensure the kernels are as optimized and efficient as possible. Custom scripts should be written for desired profiling level.
