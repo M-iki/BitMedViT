@@ -12,6 +12,7 @@ def B_global_16x32_to_shared_load_16x32_layout(i, j):
     row = (thread_id // 16) * 8 + (thread_id % 8)
     col = (j % 16) + 16 * ((thread_id % 16) // 8)
     return row, col
+    
 
 
 def permutate_weight_fastest(weight):

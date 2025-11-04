@@ -11,7 +11,7 @@ import numpy as np
 torch.manual_seed(42)
 np.random.seed(42)
 
-bitnet_lib = ctypes.CDLL('kernels/bitnet_kernels/libbitnet.so')
+bitnet_lib = ctypes.CDLL('kernels/libbitnet.so')
 def bitnet_int8xint2_linear(input0, input1, s, ws):
     out_shape = list(input0.shape)
     out_shape[-1] = input1.shape[0]
