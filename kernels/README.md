@@ -10,7 +10,7 @@ The only component preserved from the original kernels is the weight packing pat
 - Custom CUDA kernels with low-latency execution
 - Tensor Core utilization to maximise throughput
 - Kernels provided for three WMMA fragment configurations: 8x32x16, 32x8x16, and 16x16x16 (MxNxK)
-- Asynchronous reads during weight decoding enables latency hiding
+- Asynchronous reads during weight decoding enables latency hiding (currently only for 8x32x16)
 
 ## Usage
 
@@ -35,10 +35,10 @@ In contrast to bitnets original 16x32 (KxN) matrix breakdown pattern we provide 
 ### WMMA Operation
 We use ```WMMA``` as the main computing backbone that devices the activation and weight matrices into fragments passed into the tensor cores found within the streaming multiprocessors of the GPU.
 
-These operations currently support 3 fragment dimensions of 8x32x16, 32x8x16, and 16x16x16. The final TensoRT deployment integrates the 8x32x16 variant however can easily be swapped for deployment.
+These operations currently support 3 fragment dimensions of 8x32x16, 32x8x16, and 16x16x16. The final TensorRT deployment integrates the 8x32x16 variant however can easily be swapped for deployment.
 
 ### Asynchronous memory reads
-To hide any latencies incrued during weight decoding (outlined by original bitnet implementation) we integrate asynchronous memory reads introduced in GPUs with compute capabilities >8.0. 
+To hide any latencies incrued during weight decoding (outlined by original bitnet implementation) we integrate asynchronous memory reads introduced in GPUs with compute capabilities >8.0. Currently only integrated within 8x32x16 configuration.
 
 ### Computing Breakdown
 In contrast to bitnet that uses 128 total threads and ```shuffle_down_sync``` to accumulate across threads ```WMMA``` requires operation in warps or groups of 32 threads therefore we define a 3D dimension of 8x4xZ where 8 aligns with the original decoding style, 4 outlining the number of these groups to complete a warp and Z being a tunable parameter for tiling across number of outputs N. In addition to maximize occupancy we divide the computation into blocks of shape ```AxB``` where ```A``` outlines the output neuron dimension and ```B``` outlines the input patch dimension.
